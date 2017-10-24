@@ -5,7 +5,7 @@ exports.config = {
     seleniumAddress: 'http://localhost:4444/wd/hub',
     // Capabilities to be passed to the webdriver instance.
     capabilities: {
-    waitForAngularEnabled:"false",
+    //waitForAngularEnabled:"false",
     browserName: 'chrome'
     },
     frameworks: ["jasmine"],
@@ -14,7 +14,7 @@ exports.config = {
     // They may include glob patterns.
     //specs: 'spec.js',
     suites: {
-        Jasmine:"spec/jasmine/*.js",
+        //Jasmine:"spec/jasmine/*.js",
         pageObject: "spec/pageObjectTest/flowTest.js"
     },
     // Options to be passed to Jasmine-node.
