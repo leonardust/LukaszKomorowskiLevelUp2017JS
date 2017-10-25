@@ -15,7 +15,8 @@ exports.config = {
     //specs: 'spec.js',
     suites: {
         //Jasmine:"spec/jasmine/*.js",
-        pageObject: "spec/pageObjectTest/flowTest.js"
+        pageObject: "spec/pageObjectTest/zadanie2.js"
+
     },
     // Options to be passed to Jasmine-node.
     jasmineNodeOpts: {
@@ -23,7 +24,7 @@ exports.config = {
     },
     onPrepare:function(){
         global.using = using;
-        global.ignoreSynchronization = true;
+        browser.ignoreSynchronization = true;
         global.pageObjectDir = __dirname + "/pageObject";//refers to 1 line in pageObjectSpec
     },
     };

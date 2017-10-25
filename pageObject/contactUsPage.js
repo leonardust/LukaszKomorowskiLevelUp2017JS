@@ -6,4 +6,8 @@ var ContactUsPage = function ContactUsPage(){
         this.sendButton = element(By.css("#submitMessage"));
         
     }
+    /*ContactUsPage.prototype.isLabelLongerThan = function(isLabelLongerThan){
+        return new Promise(function(resolve)){
+            browser.customerService.getText().then(function(text))
+        }*/
     module.exports = ContactUsPage;
