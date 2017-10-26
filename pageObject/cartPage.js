@@ -1,7 +1,12 @@
-var CartPage = function CartPage(){
-    
-        this.URL = "http://automationpractice.com/index.php?controller=order";
-        this.productTitle = element(By.css("#header > div:nth-child(3) > div > div > div:nth-child(3) > div > a"));
-        
-    }
-    module.exports = CartPage;
+var CartPage = function() {
+
+
+    this.productTitle = element(By.css("#product_1_3_0_0 > td.cart_description > p > a"));
+}
+
+CartPage.prototype.getProductLabelText = function(){
+    var that = this;
+    return that.productTitle.getText();
+}
+
+module.exports = CartPage;
