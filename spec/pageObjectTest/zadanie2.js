@@ -1,7 +1,6 @@
 var HomePage = require(pageObjectDir + "/homePage.js")
 var DressesPage = require(pageObjectDir + "/dressesPage.js")
 
-
 var homePage = new HomePage();
 var dressesPage = new DressesPage();
 
@@ -53,9 +52,9 @@ afterEach(function() {
     
 });
 
-describe('Compare product names and prices.', function () {
+describe('Compare product names and prices Test.', function () {
     using(data,function(dress){
-        it('Should have correct name', function (){
+        it('Should have correct name.', function (){
             dressesPage[dress.cssSelector].click();
             expect(getProductLabelText(dressesPage.actualName)).toEqual(dress.name);
         });
