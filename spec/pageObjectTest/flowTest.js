@@ -6,16 +6,16 @@ var contactUsPage = new ContactUsPage();
 
 describe('Contact Us Page Test.', function () {
     it('Open Home Page.', function () {
-        homePage.get();       
+        homePage.get();
     });
-    it("Should have a title", function(){
+    it("Should have a title", function () {
         homePage.clickContactUsLink();
         expect(contactUsPage.getCustomerServiceLabelText()).toEqual('CUSTOMER SERVICE - CONTACT US');
     });
-    it("Should display Subject Heading Dropdown", function(){
+    it("Should display Subject Heading Dropdown", function () {
         expect(contactUsPage.subjectHeading.isDisplayed()).toBe(true);
     });
-    it("should display Send Button", function(){
+    it("should display Send Button", function () {
         expect(contactUsPage.sendButton.isDisplayed()).toBe(true);
     });
 });

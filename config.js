@@ -5,8 +5,8 @@ exports.config = {
     seleniumAddress: 'http://localhost:4444/wd/hub',
     // Capabilities to be passed to the webdriver instance.
     capabilities: {
-    //waitForAngularEnabled:"false",
-    browserName: 'chrome'
+        //waitForAngularEnabled:"false",
+        browserName: 'chrome'
     },
     frameworks: ["jasmine"],
     // Spec patterns are relative to the configuration file location passed
@@ -15,16 +15,16 @@ exports.config = {
     //specs: 'spec.js',
     suites: {
         //Jasmine:"spec/jasmine/*.js",
-        pageObject: "spec/pageObjectTest/zadanie2.js"
+        pageObject: "spec/pageObjectTest/*.js"
 
     },
     // Options to be passed to Jasmine-node.
     jasmineNodeOpts: {
-    showColors: true, // Use colors in the command line report.
+        showColors: true, // Use colors in the command line report.
     },
-    onPrepare:function(){
+    onPrepare: function () {
         global.using = using;
         browser.ignoreSynchronization = true;
         global.pageObjectDir = __dirname + "/pageObject";//refers to 1 line in pageObjectSpec
     },
-    };
+};

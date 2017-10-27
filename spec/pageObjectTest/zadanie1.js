@@ -10,47 +10,41 @@ var topsPage = new TopsPage();
 var productPage = new ProductPage();
 var cartPage = new CartPage();
 
-var isDescriptionLongerThan = function(isLongerThan){
-    return new Promise(function(resolve){
-        productPage.productDescription.getText().then(function(text){
-            resolve(text.length > isLongerThan);
-        })
-    });
-}
-
 describe('Adding product to the cart Test', function () {
-    it('Should open Home Page', function () { 
-        homePage.get();       
+    it('Should open Home Page', function () {
+        homePage.get();
+        expect(browser.getTitle()).toEqual("My Store")
     });
-    it("Should click womenLink.", function() {
+    it("Should click womenLink.", function () {
         homePage.clickWomenLink();
         expect(browser.getTitle()).toEqual("Women - My Store");
     });
-    it("Should click topsLink.", function(){
+    it("Should click topsLink.", function () {
         womenPage.clickTopsLink();
         expect(browser.getTitle()).toEqual("Tops - My Store");
     });
-    it("Should open Faded Short Sleeve T-Shirt.", function(){
+    it("Should open Faded Short Sleeve T-Shirt.", function () {
         topsPage.clickProductLink();
         expect(browser.getTitle()).toEqual("Faded Short Sleeve T-shirts - My Store");
     });
-    it("Description should longer than 8.", function(){
-        expect(isDescriptionLongerThan(8)).toBe(true);
+    it("Description should longer than 8.", function () {
+        expect(productPage.isDescriptionLongerThan(8)).toBe(true);
     });
-    it("Product condition should New.", function(){
+    it("Product condition should New.", function () {
         expect(productPage.getProductConditionLabelText()).toEqual("New");
     });
-    it("Add product in size m to the cart.", function(){
+    it("Add product in size m to the cart.", function () {
         productPage.clickSizeOption();
         expect(productPage.getSelectedSizeText()).toEqual("M")
         productPage.clickAddToCartButton();
     });
-    it("Should go to the cart.", function(){
-        browser.wait(function() {
-            return productPage.imagePopUp.isPresent()}); 
-            productPage.clickProceedToCheckoutButton();
+    it("Should go to the cart.", function () {
+        browser.wait(function () {
+            return  productPage.imagePopUp.isPresent()
+        });
+        productPage.clickProceedToCheckoutButton();
     });
-    it("Should add correct product to the cart.", function(){ 
-        expect(cartPage.getProductLabelText()).toEqual("Faded Short Sleeve T-shirts");    
+    it("Should add correct product to the cart.", function () {
+        expect(cartPage.getProductLabelText()).toEqual("Faded Short Sleeve T-shirts");
     });
 });

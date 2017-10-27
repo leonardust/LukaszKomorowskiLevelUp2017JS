@@ -1,8 +1,9 @@
 var HomePage = require(pageObjectDir + "/homePage.js")
 var DressesPage = require(pageObjectDir + "/dressesPage.js")
-
+//var TestDataPage = require(pageObjectDir + "/testDataPage")
 var homePage = new HomePage();
 var dressesPage = new DressesPage();
+//var testDataPage = new TestDataPage();
 
 var data = {
     "dress1":{
@@ -39,20 +40,12 @@ var getProductLabelText = function(element){
         })
     });
 }
-beforeAll( function () {
-    browser.get(dressesPage.URL);
-});
-beforeEach(function() {
-
-});
-afterAll(function() {
-    
-});
-afterEach(function() {
-    
-});
 
 describe('Compare product names and prices Test.', function () {
+    beforeAll( function () {
+        dressesPage.get();
+        expect(browser.getTitle()).toEqual("Dresses - My Store");
+    });
     using(data,function(dress){
         it('Should have correct name.', function (){
             dressesPage[dress.cssSelector].click();
